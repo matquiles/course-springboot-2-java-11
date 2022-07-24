@@ -3,32 +3,41 @@ package com.aprendizagem.course.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class User implements Serializable{
-	
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Users implements Serializable{
 	private static final long serialVersionUID = 1L;
-	private Long id;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idUser;
 	private String name;
 	private String email;
 	private String phone;
 	private String password;
 	
-	public User() {
+	public Users() {
 	}
 
-	public User(Long id, String name, String email, String phone, String password) {
-		this.id = id;
+	public Users(Long id, String name, String email, String phone, String password) {
+		this.idUser = id;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.password = password;
 	}
 
-	public Long getId() {
-		return id;
+
+	public Long getIdUser() {
+		return idUser;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
 	}
 
 	public String getName() {
@@ -65,7 +74,7 @@ public class User implements Serializable{
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(idUser);
 	}
 
 	@Override
@@ -76,12 +85,9 @@ public class User implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
-		return Objects.equals(id, other.id);
+		Users other = (Users) obj;
+		return Objects.equals(idUser, other.idUser);
 	}
-	
-	
-	
-	
 
+	
 }
