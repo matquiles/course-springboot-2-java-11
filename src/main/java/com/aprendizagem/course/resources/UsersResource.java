@@ -9,7 +9,7 @@ import com.aprendizagem.course.entities.Users;
 
 @RestController
 @RequestMapping(value="/users")
-public class UserResource {
+public class UsersResource {
 	
 	@GetMapping
 	public ResponseEntity<Users> findAll(){
