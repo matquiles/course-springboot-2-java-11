@@ -1,24 +1,29 @@
 package com.aprendizagem.course.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tb_category")
 public class Category implements Serializable{
-
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCategoria;
 	private String nmCategory;
+	
+	@Transient
+	private Set<Product> products = new HashSet<>();
 	
 	public Category() {
 	}
@@ -37,12 +42,16 @@ public class Category implements Serializable{
 		this.idCategoria = idCategoria;
 	}
 
-	public String getNameCategoria() {
+	public String getNmCategory() {
 		return nmCategory;
 	}
 
-	public void setNameCategoria(String nmCategory) {
+	public void setNmCategory(String nmCategory) {
 		this.nmCategory = nmCategory;
+	}
+
+	public Set<Product> getProducts() {
+		return products;
 	}
 
 	@Override
