@@ -2,10 +2,10 @@ package com.aprendizagem.course.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.aprendizagem.course.entities.User;
+import com.aprendizagem.course.entities.Order;
 
 
-public interface UsersRepository extends JpaRepository<User, Long>{
+public interface OrderRepository extends JpaRepository<Order, Long>{
 	
 
 }
